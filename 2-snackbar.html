@@ -5,7 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Snackbar</title>
-    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/styles-D0eGqtnR.css">
+    <script type="module" crossorigin src="/goit-js-hw-10/2-snackbar.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/styles-COCkzGRE.js">
+    <link rel="modulepreload" crossorigin href="/goit-js-hw-10/assets/vendor-BbbuE1sJ.js">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/styles-KAijxOjj.css">
+    <link rel="stylesheet" crossorigin href="/goit-js-hw-10/assets/vendor-CZjNVMTf.css">
   </head>
   <body>
     <header class="header">
@@ -29,31 +33,35 @@
 </header>
 
 
-    <main>
-      <div class="container">
-        <h1 class="main-title">
-          <span class="main-title-gradient">Welcome</span> to Snackbar
-        </h1>
-        <a class="back-link" href="./index.html">Go back</a>
+  <main>
+    <div class="container">
+      <h1 class="main-title">
+        <span class="main-title-gradient">Welcome</span> to Snackbar
+      </h1>
+      <a class="back-link" href="./index.html">Go back</a>
 
-      </div>
-    </main>
+    </div>
 
-    <footer class="footer">
-  <div class="container">
-    <p class="footer-desc">
-      Made with ✨ by
-      <a
-        class="footer-link"
-        href="https://goit.global/ua/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GoIT team
-      </a>
-    </p>
-  </div>
-</footer>
+      <form class="form">
+        <label>
+          Delay (ms)
+        </label>
+        <input type="number" name="delay" required />
 
+        <fieldset>
+          <legend>State</legend>
+          <label>
+            <input type="radio" name="state" value="fulfilled" required />
+            Fulfilled
+          </label>
+          <label>
+            <input type="radio" name="state" value="rejected" required />
+            Rejected
+          </label>
+        </fieldset>
+
+      <button type="submit">Create notification</button>
+    </form>
+  </main>
   </body>
 </html>
