@@ -16,61 +16,65 @@
 @import url('./badges.css');
 @import url('./back-link.css');
 @import url('./footer.css');
+@import url('./1-timer.css');
 
-.timer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-top: 32px;
-  /* margin-left: 156px; */
-  gap: 24px;
+label {
+  text-align: left;
 }
 
-.field {
+.form {
   display: flex;
   flex-direction: column;
-  width: 82px;
-  height: 72px;
-  font-size: 24px;
-  font-weight: 84;
+  width: 360px;
+
+  margin-left: 156px;
+  margin-top: 36px;
+
 }
 
-.value {
-  font-size: 40px;
-  font-weight: 400;
+legend {
+  text-align: left;
 }
 
-.flatpickr-input[readonly] {
-  width: 355px;
-  height: 40px;
-  margin-top: 20px;
-  padding-left: 16px;
-
-  font-size: 24px;
-  font-weight: 138;
-  
+label {
   color: #2e2f42;
-  border-color: #4e75ff;
+}
+
+label + input {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  height: 40px;
+  padding-left: 16px;
+  margin-bottom: 16px;
+}
+
+label + input:hover {
+  border: 1px solid #2e2f42;
+}
+
+label + input:focus {
+  outline: 1px solid #4e75ff;
+} 
+
+fieldset {
+  border: 1px solid #808080;
   border-radius: 4px;
 }
 
-button {
-  width: 75px;
+fieldset + button {
   height: 40px;
-
-  font-size: 16px;
-  font-weight: 43;
-
-  color: #ffffff;
+  margin-top: 24px;
+  padding: 0;
   background-color: #4e75ff;
-  border-color: #4e75ff;
+  border: 1px solid #4e75ff;
   border-radius: 8px;
-  fill: #4e75ff;
+  color: #ffffff;
 }
 
-button.isActive {
-  background-color: #cfcfcf;
-  border-color: #cfcfcf;
-  color: #989898;
-  cursor: auto;
+fieldset + button:hover {
+  background-color: #6c8cff;
+}
+
+input[type="radio"] {
+  background-color: #4e75ff;
 }

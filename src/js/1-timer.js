@@ -11,7 +11,7 @@ const minutesValue = document.querySelector('[data-minutes]');
 const secondsValue = document.querySelector('[data-seconds]');
 
 let countdownIntervalId;
-    buttonStart.disabled = true;
+buttonStart.disabled = true;
 
 const options = {
     enableTime: true,
@@ -19,13 +19,13 @@ const options = {
     defaultDate: new Date(),
     minuteIncrement: 1,
     onClose(selectedDates) {
-        checkSelectedDate(selectedDates[0]);
-        buttonStart.disabled = false;
+      buttonStart.disabled = false;
+      checkSelectedDate(selectedDates[0]);
     },
 };
 
 flatpickr('#datetime-picker', options);
-buttonStart.addEventListener('click', () => {
+  buttonStart.addEventListener('click', () => {
     const selectedDate = new Date(inputEl.value);
     inputEl.disabled = true;
 
@@ -36,12 +36,13 @@ buttonStart.addEventListener('click', () => {
 });
 
 function checkSelectedDate(date) {
-    if (date < new Date()) {
+  if (date < new Date()) {
     iziToast.error({
-        title: 'Error',
-        timeout: 2000,
-        position: "topRight",
-        message: "Please choose a date in the future",
+      // title: 'Error',
+      backgroundColor: "#ef4040",
+      timeout: 2000,
+      position: "topRight",
+      message: "Please choose a date in the future",
     });
     buttonStart.disabled = true;
     return;
@@ -50,32 +51,30 @@ function checkSelectedDate(date) {
 
 function startCountdown(value) {
 
-    function updateCountdown() {
-        const timeLeft = getTimeRemaining(value);
-        daysValue.textContent = addLeadingZero(timeLeft.days);
-        hoursValue.textContent = addLeadingZero(timeLeft.hours);
-        minutesValue.textContent = addLeadingZero(timeLeft.minutes);
-        secondsValue.textContent = addLeadingZero(timeLeft.seconds);
+  function updateCountdown() {
+    const timeLeft = getTimeRemaining(value);
+    daysValue.textContent = addLeadingZero(timeLeft.days);
+    hoursValue.textContent = addLeadingZero(timeLeft.hours);
+    minutesValue.textContent = addLeadingZero(timeLeft.minutes);
+    secondsValue.textContent = addLeadingZero(timeLeft.seconds);
 
-        if (timeLeft.total <= 1000) {
-            clearInterval(countdownIntervalId);
-            buttonStart.disabled = false;
-            iziToast.success({
-                title: 'OK',
-                timeout: 2000,
-                position: "topRight",
-                message: 'Successfully inserted record!',
-            });
-            buttonStart.classList.toggle('isActive');
-            inputEl.disabled = false;
-            // console.log(inputEl.disabled);
-            buttonStart.disabled = true;
-        }
-        
-        
+    if (timeLeft.total <= 1000) {
+      clearInterval(countdownIntervalId);
+      buttonStart.disabled = false;
+      iziToast.success({
+        // title: 'OK',
+        backgroundColor: "#b5ea7c",
+        timeout: 2000,
+        position: "topRight",
+        message: 'Successfully inserted record!',
+      });
+      buttonStart.classList.toggle('isActive');
+      buttonStart.disabled = true;
+      inputEl.disabled = false;
     }
-  
-    updateCountdown();
+  }
+
+  updateCountdown();
 
   countdownIntervalId = setInterval(updateCountdown, 1000);
 }
