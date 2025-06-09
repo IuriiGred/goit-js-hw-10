@@ -25,14 +25,15 @@ const options = {
 };
 
 flatpickr('#datetime-picker', options);
-  buttonStart.addEventListener('click', () => {
-    const selectedDate = new Date(inputEl.value);
-    inputEl.disabled = true;
 
-    checkSelectedDate(selectedDate);
-    buttonStart.disabled = true;
-    buttonStart.classList.toggle('isActive');
-    startCountdown(selectedDate);
+buttonStart.addEventListener('click', () => {
+  const selectedDate = new Date(inputEl.value);
+  inputEl.disabled = true;
+
+  checkSelectedDate(selectedDate);
+  buttonStart.disabled = true;
+  buttonStart.classList.toggle('isActive');
+  startCountdown(selectedDate);
 });
 
 function checkSelectedDate(date) {
@@ -60,7 +61,7 @@ function startCountdown(value) {
 
     if (timeLeft.total <= 1000) {
       clearInterval(countdownIntervalId);
-      buttonStart.disabled = false;
+      // buttonStart.disabled = false;
       iziToast.success({
         // title: 'OK',
         backgroundColor: "#b5ea7c",
@@ -69,14 +70,15 @@ function startCountdown(value) {
         message: 'Successfully inserted record!',
       });
       buttonStart.classList.toggle('isActive');
-      buttonStart.disabled = true;
+      // buttonStart.disabled = true;
       inputEl.disabled = false;
     }
   }
+  
+  countdownIntervalId = setInterval(updateCountdown, 1000);
 
   updateCountdown();
 
-  countdownIntervalId = setInterval(updateCountdown, 1000);
 }
 
 function addLeadingZero(value) {
